@@ -1,0 +1,49 @@
+{#
+ # News entry template
+ # -------------------
+ #
+ # This template gets loaded whenever a News entry’s URL is
+ # requested. That’s because the News section’s Template setting is
+ # set to “news/_entry”, the path to this template.
+ #
+ # When this template is loaded, it will already have an ‘entry’
+ # variable, set to the requested News entry.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+<div id="container" class="news">
+	<article>
+		<div class="content-main news">
+			<main id="content" role="main">
+				{% set image = entry.articleimagelarge.last() %}
+				{% if image %}
+					<div class="img-hack">
+						<a href="http://tinyurl.com/statchat" target="_blank">
+							<img class="article-head" src="{{ image.url }}" />
+						</a>
+					</div>
+				{% endif %}
+				<a class="twitter-share-button"
+				  href="https://twitter.com/intent/tweet?hashtags=StatChat,FPL,FanDuel&text={{entry.articleSubhead}}"
+				  data-size="large">
+					Tweet</a>
+				{% include 'statmenu.html' %}
+				<div class="article-body">
+					<h1 class="article-title">{{ entry.title }}</h1>
+					<p class="article-time">Posted on {{ entry.postDate.format('F d, Y') }}</p>
+					<div class="article-content">
+						<h4 class="article-subhead">{{entry.articleSubhead}}</h4>
+						{{ entry.body }}
+					</div>
+				</div>
+			</main>
+		</div>
+	</article>
+	<div id="disqus_thread"></div>
+</div>
+{% endblock %}

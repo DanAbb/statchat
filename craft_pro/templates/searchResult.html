@@ -1,0 +1,40 @@
+{% extends "_layout" %}
+{% set title = "Search Results" %}
+
+{% block content %}
+<div id="container">
+{% set query = craft.request.getParam('q') %}
+{% set entries = craft.entries.search(query).order('score') %}
+
+{% if entries|length %}
+	<h2>
+		Your search returned {{ entries|length }} results!
+	</h2>
+	<div class="articles">
+		{% for entry in entries %}
+			<div class="article-body">
+				<h1 class="article-title">{{ entry.title }}</h1>
+				<p class="article-time">Posted on {{ entry.postDate.format('F d, Y') }}</p>
+				<h4 class="result-subhead">{{entry.articleSubhead}}</h4>
+				<p class="result-body"> {{ entry.articleSummary }}</p>
+				<a class="continue" href="{{ entry.url }}">Continue reading</a>
+			</div>
+		 {% endfor %}
+	</div>
+	{% else %}
+		<h3>Sorry I couldn't find anything on “{{ query }}”.</h3>
+		<p>Here are our latest posts</p>
+		<div class="articles">
+			{% for entry in craft.entries.section('news').limit(10).find() %}
+				<div class="article-body">
+					<h1 class="article-title">{{ entry.title }}</h1>
+					<p class="article-time">Posted on {{ entry.postDate.format('F d, Y') }}</p>
+					<h4 class="result-subhead">{{entry.articleSubhead}}</h4>
+					<p class="result-body"> {{ entry.articleSummary }}</p>
+					<a class="continue" href="{{ entry.url }}">Continue reading</a>
+				</div>
+			 {% endfor %}
+		</div>
+	{% endif %}
+</div>
+{% endblock %}

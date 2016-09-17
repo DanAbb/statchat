@@ -1,0 +1,29 @@
+.register-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-flow: column;
+
+   .register-form {
+      margin-top: 20px;
+      box-sizing: border-box;
+
+      * > {
+         width: 100%;
+         box-sizing: border-box;
+      }
+   }
+
+   .register-submit {
+      background: @secondary;
+      color: @tertiary;
+      width: 100%;
+      line-height: 2.1rem;
+      margin-top: 20px;
+      cursor: pointer;
+
+      &:hover {
+         background: @primary-dark;
+      }
+   }
+}

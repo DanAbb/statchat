@@ -1,0 +1,43 @@
+.login-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-flow: column nowrap;
+
+   .login-form {
+      margin-top: 20px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+
+      * > {
+         width: 100%;
+         box-sizing: border-box;
+      }
+   }
+
+   .login-submit {
+      background: @secondary;
+      color: @tertiary;
+      width: 100%;
+      line-height: 2.1rem;
+      cursor: pointer;
+
+      &:hover {
+         background: @primary-dark;
+      }
+   }
+
+   .remember-me {
+      display: inline-block;
+      width: auto;
+      height: auto;
+   }
+}
+
+.forgot-password {
+   color: @primary-dark;
+}
+
+.register-link {
+   color: @secondary-dark;
+}

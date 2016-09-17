@@ -1,0 +1,22 @@
+<nav class="side-nav animated">
+   <div class="side-search">
+      <form action="{{ url('search/results') }}">
+         <input type="search" name="q" placeholder="Search Articles">
+         <input type="submit" value="Go" style="display:none;">
+      </form>
+   </div>
+   <h2 class="side-head">Latest Articles</h2>
+   <ul>
+      <a class="news-summary fanduel-signup" href="http://tinyurl.com/statchat" target="_blank">
+         <h4>Sign up to FanDuel for up to £400 bonus!</h4>
+         <p class="date">Posted on September 13, 2016</p>
+      </a>
+      {% for entry in craft.entries.section('news').limit(10).find() %}
+         <a class="news-summary" href="{{ entry.url }}">
+            <h4>{{ entry.title }}</h4>
+            <p class="date">Posted on {{ entry.postDate.format('F d, Y') }}</p>
+            <!-- <a class="continue" href="{{ entry.url }}">Continue reading</a> -->
+         </a>
+      {% endfor %}
+   </ul>
+</nav>

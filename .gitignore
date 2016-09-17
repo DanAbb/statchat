@@ -1,0 +1,13 @@
+/craft/app
+/craft/config
+/craft/plugins
+/craft/storage
+
+/public_html/node_modules
+/public_html_pro/node_modules
+
+/public_html_pro/assets/img
+/public_html/assets/img
+
+/public_html/assets/fonts
+/public_html_pro/assets/fonts

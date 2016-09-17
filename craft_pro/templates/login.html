@@ -1,0 +1,39 @@
+{% extends "_layout" %}
+{% set title = "Login" %}
+
+
+{% block content %}
+<div id="container" class="contact">
+  <article>
+    <div class="content-main">
+        <div class="login-wrapper">
+            <img class="article-head" src="/assets/img/banner.jpg">
+            <form class="login-form" method="post" accept-charset="UTF-8">
+                {{ getCsrfInput() }}
+                <input type="hidden" name="action" value="users/login">
+
+                <h3><label for="loginName">Username or email</label></h3>
+                <input id="loginName" type="text" name="loginName"
+                    value="{{ craft.session.rememberedUsername }}">
+
+                <h3><label for="password">Password</label></h3>
+                <input id="password" type="password" name="password">
+
+                <label>
+                    <input id="rememberMe" class="remember-me" type="checkbox" name="rememberMe" value="1">
+                    <label for="rememberMe">Remember me</label>
+                </label>
+
+                <input class="login-submit" type="submit" value="Login">
+
+                {% if errorMessage is defined %}
+                    <p>{{ errorMessage }}</p>
+                {% endif %}
+            </form>
+            <p><a class="forgot-password" href="{{ url('forgotpassword') }}">Forgot your password?</a></p>
+            <p><a class="register-link" href="{{ url('register') }}">Not a member? Register here!</a></p>
+        </div>
+    </div>
+  </article>
+</div>
+{% endblock %}

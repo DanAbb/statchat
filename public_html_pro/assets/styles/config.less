@@ -1,0 +1,57 @@
+@blue: #2B00F7;
+// @secondary: #202020;
+@secondary: #003D50;
+@secondary-dark: #002A37;
+// @primary: #dc143c;
+@primary: #D81939;
+@primary-dark: #C11633;
+@tertiary: #F1F1F1;
+@tertiary-dark: #E3E3E3;
+@screen-lg: 1200px;
+@screen-md: 992px;
+@screen-sm: 768px;
+@screen-xs: 420px;
+
+.header(@fs,@lh) {
+	font-size: @fs;
+	line-height: @lh;
+}
+
+.hide {
+	display: none!important;
+}
+
+.small-text {
+	font-size: 0.9rem !important;
+}
+
+h1 {
+	.header(2.4rem, 2.8rem);
+
+	// margin: 20px 0;
+}
+
+h2 {
+	.header(2.2rem, 2.6rem);
+}
+
+h3 {
+	.header(2.0rem, 2.4rem);
+}
+
+h4 {
+	.header(1.8rem, 2.2rem);
+}
+
+h5 {
+	.header(1.6rem, 2.0rem);
+}
+
+p {
+	font-size: 1.1rem;
+	line-height: 1.6rem;
+}
+
+a {
+	color: @blue;
+}

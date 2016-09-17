@@ -1,0 +1,7 @@
+<div class="gameweek-menu">
+   <ul>
+      {% for entry in craft.entries.section('gameweekstats') | reverse %}
+         <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+      {% endfor %}
+   </ul>
+</div>

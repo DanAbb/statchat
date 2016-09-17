@@ -1,0 +1,27 @@
+{% extends "_layout" %}
+{% set title = "About" %}
+
+{% block content %}
+<div id="container" class="about">
+   <article>
+      <div class="content-main">
+         <main id="content" role="main">
+            {% set image = entry.articleimagelarge.last() %}
+            {% if image %}
+               <div class="img-hack">
+                  <img class="article-head" src="{{ image.url }}" />
+               </div>
+            {% endif %}
+
+            <div class="article-body">
+               <h1 class="article-title">{{ entry.title }}</h1>
+               <div class="article-content">
+                  {{ entry.body }}
+               </div>
+            </div>
+         </main>
+      </div>
+   </article>
+</div>
+{% endblock %}
+

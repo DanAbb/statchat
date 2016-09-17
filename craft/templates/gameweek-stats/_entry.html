@@ -1,0 +1,35 @@
+{% extends "_layout" %}
+{% requireLogin %}
+
+{% block content %}
+<div id="container" class="stats">
+	<article>
+		<div class="content-main">
+			<main id="content" role="main">
+				{% set image = entry.articleimagelarge.last() %}
+				{% if image %}
+				<div class="img-hack">
+					<a href="http://tinyurl.com/statchat" target="_blank">
+						<img class="article-head" src="{{ image.url }}" />
+					</a>
+				</div>
+				{% endif %}
+				<a class="twitter-share-button"
+					  href="https://twitter.com/intent/tweet?hashtags=StatChat,FPL,FanDuel&text={{entry.articleSubhead}}"
+					  data-size="large">
+						Tweet</a>
+				{% include 'statmenu.html' %}
+				<div class="article-body">
+					<h1 class="article-title">{{ entry.title }}</h1>
+					<div class="article-content">
+						{{ entry.body }}
+					</div>
+				</div>
+			</main>
+		</div>
+		<p style="text-align:center; margin-top:10px;">**stats may not be 100% accurate. but they're pretty damn close!**</p>
+		<p style="text-align:center; margin-top:10px;">**GK Stats NOT INCLUDED**</p>
+	</article>
+	<div id="disqus_thread"></div>
+</div>
+{% endblock %}

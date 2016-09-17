@@ -1,0 +1,35 @@
+.footer {
+   height: 82px;
+   background: @secondary;
+   color: #fff;
+   text-align: center;
+
+   footer {
+      height: 100%;
+   }
+
+   ul {
+      display: flex;
+      flex-flow: row wrap;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+
+   li {
+      list-style: none;
+      display: inline-block;
+      padding: 10px;
+
+      a {
+         color: @tertiary;
+         text-decoration: none;
+         font-size: 1rem;
+
+         &:hover {
+            color: @primary;
+         }
+      }
+   }
+}

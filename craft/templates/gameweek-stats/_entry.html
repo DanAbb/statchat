@@ -1,5 +1,5 @@
 {% extends "_layout" %}
-{% requireLogin %}
+{% set seo = craft.seo.custom(entry.title, 'FanDuel Stats', true) %}
 
 {% block content %}
 <div id="container" class="stats">

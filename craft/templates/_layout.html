@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
+  {# SEO Start #}
+  {% if seo is not defined %}
+      {% set seo = craft.seo.custom(siteName, '', false) %}
+  {% endif %}
+
+  <title>{{ seo.title }}</title>
+  <meta name="description" content="{{ seo.description }}" />
+
+  <meta property='og:title' content='{{ seo.title }}' />
+  <meta property='og:url' content='{{ craft.request.url }}' />
+  <meta property='og:site_name' content='{{ siteName }}' />
+  <meta property='og:description' content='{{ seo.description }}' />
+
+  <meta property='twitter:site' content='{# Your Twitter Handle (no @) #}' />
+  <meta property='twitter:title' content='{{ seo.title }}' />
+  <meta property='twitter:description' content='{{ seo.description }}' />
+  <meta property='twitter:url' content='{{ craft.request.url }}' />
+
+  <link rel="home" href="{{ siteUrl }}" />
+  <link rel="canonical" href="{{ craft.request.url }}">
+  {# SEO End #}
    <meta charset="utf-8" />
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-   <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
    <link rel="home" href="{{ siteUrl }}" />
    <link rel="stylesheet" type="text/css" href="/public/css/app.css">

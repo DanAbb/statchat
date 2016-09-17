@@ -1,3 +1,4 @@
+{% set seo = craft.seo.custom('StatChat Home', 'FanDuel and FPL Articles and Stats', true) %}
 <div class="articles">
    {% for entry in craft.entries.section('news').limit(10).find() %}
       <div class="article-body">

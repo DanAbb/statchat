@@ -119,6 +119,16 @@
 	.in-article-img {
 		width: 100%;
 	}
+
+	.in-article-img-small {
+		width: 50%;
+		margin: 0 auto;
+		display: block;
+
+		@media screen and (max-width: @screen-sm) {
+			width: 100%;
+		}
+	}
 }
 
 .continue {

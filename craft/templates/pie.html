@@ -1,0 +1,22 @@
+{% extends "_layout" %}
+{% set title = "Pie" %}
+
+{% block content %}
+<div id="container" class="d3">
+   {% include 'topsection.html' %}
+   <div class="info">
+      <p>Search for a player by name to see their statpie! Try hovering over each segment for more information. You can also click on the little squares to remove that particular stat. This is handy for when you only want to view attacking or defensive stats for example. I have also found it useful to remove the goal stat to see which players are heavily reliant on goals for their points.</p>
+   </div>
+   <div class="form-container">
+      <form method="get" class="player-search">
+         <input placeholder="Search Player" type="text" name="player" />
+         <input type="submit" name="search" />
+      </form>
+   </div>
+   <h1 class="player-name"></h1>
+   {% include 'gameweek-menu.html' %}
+   <h2 class="total-points"></h2>
+   <div id="chart"></div>
+</div>
+{% endblock %}
+

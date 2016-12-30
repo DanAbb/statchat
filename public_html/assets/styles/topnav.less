@@ -19,11 +19,11 @@
     background: @primary;
 
     @media screen and (max-width: @screen-xs) {
-        width: 80px;
+        width: 140px;
     }
 
     #topnav-logo {
-        height: 70px;
+        height: 50px;
         width: auto;
     }
 
@@ -59,7 +59,7 @@
     height: 82px;
     width: auto;
     padding: 10px 15px 20px;
-    background: @secondary;
+    background: @secondary-dark;
     cursor: pointer;
 
     &:hover {
@@ -88,6 +88,13 @@
     text-align: center;
     box-sizing: border-box;
     padding: 0 21px;
+
+    @media screen and (max-width: @screen-xs) {
+        svg& {
+            left: 21px;
+        }
+    }
+
 
     &:hover {
         background: @primary-dark;
@@ -125,7 +132,7 @@
     right: 82px;
     height: 82px;
     width: 150px;
-    background: @primary-dark;
+    background: @secondary;
 
     &:hover {
         background: @secondary-dark;

@@ -15,7 +15,8 @@ const checkStatus = response => {
 const parseJSON = response => response.json().catch(() => response);
 
 export default (url, options = {}) => {
-  options.headers = options.headers || new Headers();
+  // options.headers = options.headers || new Headers();
+  // console.log(options.headers);
 
   // set method to uppercase
   options.method = (options.method) ? options.method.toUpperCase() : 'GET';

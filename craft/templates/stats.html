@@ -1,5 +1,6 @@
 {% extends "_layout" %}
-{% set seo = craft.seo.custom(entry.title, 'Overall FanDuel Stats', true) %}
+{% set seo = craft.seo.custom(entry.title, 'FanDuel Stats', true) %}
+{% requireLogin %}
 
 {% block content %}
 <div id="container" class="stats">
@@ -20,9 +21,52 @@
                   Tweet</a>
             {% include 'statmenu.html' %}
             <div class="article-body">
-               <h1 class="article-title">{{ entry.articleHeader }}</h1>
+               <h1 class="article-title">{{ entry.title }}</h1>
                <div class="article-content">
-                  {{ entry.body }}
+                  <div class="gw-stats" data-gameweek="{{ entry.gameweek }}">
+                     <table class="stats-table">
+                        <tbody class="stat-body">
+                           <tr class="no-sort">
+                              <td>Total</td>
+                              <td>Name</td>
+                              <td>Team</td>
+                              <td>Passes</td>
+                              <td>Fouls Won</td>
+                              <td>Clearances</td>
+                              <td>Interceptions</td>
+                              <td>Shots Blocked</td>
+                              <td>Tackles Won</td>
+                              <td>Chances Created</td>
+                              <td>Shots On Target</td>
+                              <td>Assists</td>
+                              <td>Goals</td>
+                              <td>Own Goals</td>
+                              <td>Missed Pen</td>
+                              <td>Red Card</td>
+                              <td>Yellow Card</td>
+                           </tr>
+                           <tr class="row-data">
+                              <td class="Total"></td>
+                              <td class="Name"></td>
+                              <td class="Team"></td>
+                              <td class="Passes"></td>
+                              <td class="FoulsWon"></td>
+                              <td class="Clearances"></td>
+                              <td class="Interceptions"></td>
+                              <td class="ShotsBlocked"></td>
+                              <td class="TacklesWon"></td>
+                              <td class="ChancesCreated"></td>
+                              <td class="ShotsOnTarget"></td>
+                              <td class="Assists"></td>
+                              <td class="Goals"></td>
+                              <td class="OwnGoals"></td>
+                              <td class="MissedPen"></td>
+                              <td class="RedCard"></td>
+                              <td class="YellowCard"></td>
+                           </tr>
+                     </tbody>
+                     </table>
+                  </div>
                </div>
             </div>
          </main>

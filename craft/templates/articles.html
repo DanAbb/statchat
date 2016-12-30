@@ -1,6 +1,24 @@
 {% set seo = craft.seo.custom('StatChat Home', 'FanDuel and FPL Articles and Stats', true) %}
 <div class="articles">
-   {% for entry in craft.entries.section('news').limit(10).find() %}
+   {% for entry in craft.entries.section('pinnedItem').limit(1).find() %}
+      <div class="pinned-article">
+         <div class="img">
+            {% set image = entry.articleImage.first() %}
+            {% if image %}
+               <img class="article-img" src="{{ image.url }}" />
+            {% endif %}
+         </div>
+         <div class="pinned-body">
+            <h1 class="article-title">{{ entry.articleHeader }}</h1>
+            <div class="inner-body">
+               <p class="article-time">Posted on {{ entry.postDate.format('F d, Y') }}</p>
+               <p class="article-mini-body">{{ entry.body }}</p>
+            </div>
+         </div>
+      </div>
+   {% endfor %}
+   {% paginate craft.entries.section('news').limit(6) as pageInfo, pageEntries %}
+   {% for entry in pageEntries %}
       <div class="article-body">
          <h1 class="article-title">{{ entry.title }}</h1>
          <div class="img-wrapper">
@@ -15,4 +33,17 @@
          <a class="continue" href="{{ entry.url }}">Continue reading</a>
       </div>
     {% endfor %}
+</div>
+<div class="pagination">
+   {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">&#8592; Previous</a>{% endif %}
+   {% for page, url in pageInfo.getPrevUrls(3) %}
+       <a href="{{ url }}">{{ page }}</a>
+   {% endfor %}
+
+   <span class="current">{{ pageInfo.currentPage }}</span>
+
+   {% for page, url in pageInfo.getNextUrls(3) %}
+       <a href="{{ url }}">{{ page }}</a>
+   {% endfor %}
+   {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next &#8594;</a>{% endif %}
 </div>
